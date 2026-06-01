@@ -14,6 +14,12 @@ describe('AppController', () => {
     appController = app.get<AppController>(AppController);
   });
 
+  it('should return hello world payload', () => {
+    expect(appController.getHello()).toBe(
+      `Hello World! - Beauty Match API (${process.env.NODE_ENV ?? 'development'})`,
+    );
+  });
+
   it('should return api health payload', () => {
     expect(appController.getHealth()).toEqual({
       name: 'beauty-match-back',
